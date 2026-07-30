@@ -11,6 +11,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             UserSeeder::class,        // D'abord les utilisateurs
             FormationSeeder::class,   // Ensuite les formations
+            ResourceSeeder::class,    // Ensuite les ressources
         ]);
     }
 }

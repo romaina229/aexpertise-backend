@@ -42,3 +42,14 @@ Route::delete('/contacts/{id}', [ContactController::class, 'destroy']);
 Route::post('/login', [App\Http\Controllers\Api\AuthController::class, 'login']);
 Route::post('/logout', [App\Http\Controllers\Api\AuthController::class, 'logout'])->middleware('auth:sanctum');
 Route::get('/user', [App\Http\Controllers\Api\AuthController::class, 'user'])->middleware('auth:sanctum');
+
+// Resources
+Route::get('/resources', [App\Http\Controllers\Api\ResourceController::class, 'index']);
+Route::get('/resources/{id}', [App\Http\Controllers\Api\ResourceController::class, 'show']);
+Route::post('/resources', [App\Http\Controllers\Api\ResourceController::class, 'store']);
+Route::put('/resources/{id}', [App\Http\Controllers\Api\ResourceController::class, 'update']);
+Route::delete('/resources/{id}', [App\Http\Controllers\Api\ResourceController::class, 'destroy']);
+Route::post('/resources/{id}/views', [App\Http\Controllers\Api\ResourceController::class, 'incrementViews']);
+Route::post('/resources/{id}/downloads', [App\Http\Controllers\Api\ResourceController::class, 'incrementDownloads']);
+Route::post('/resources/{id}/toggle-active', [App\Http\Controllers\Api\ResourceController::class, 'toggleActive']);
+Route::post('/resources/{id}/toggle-featured', [App\Http\Controllers\Api\ResourceController::class, 'toggleFeatured']);
