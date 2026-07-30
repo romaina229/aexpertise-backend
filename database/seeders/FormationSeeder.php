@@ -175,8 +175,13 @@ class FormationSeeder extends Seeder
         ];
 
         foreach ($formations as $formation) {
-            Formation::create($formation);
-        }
+        Formation::updateOrCreate(
+            [
+                'title' => $formation['title'],
+            ],
+            $formation
+        );
+    }
 
         $this->command->info('✅ ' . count($formations) . ' formations créées avec succès !');
     }
