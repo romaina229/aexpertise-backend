@@ -230,7 +230,10 @@ class ResourceSeeder extends Seeder
         ];
 
         foreach ($resources as $resource) {
-            Resource::updateOrCreate(['id' => $resource['id']], $resource);
+            Resource::updateOrCreate([
+                'title' => $resource['title'],
+            ],
+            $resource);
         }
 
         $this->command->info('✅ ' . count($resources) . ' ressources créées avec succès !');
